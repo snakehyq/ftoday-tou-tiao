@@ -1,3 +1,11 @@
-> 1%
-last 2 versions
-not dead
+# 表示的浏览器使用的用户超过1%
+# > 1%
+# 兼容浏览器的最后两个版本
+# 如果ie最新版本11 兼容11 10
+# last 2 versions
+# 不是死的就是活的
+# not dead
+# 安装版本大于等于4.0
+Android >= 4.0
+# ios版本大于等于8
+ iOS >= 8

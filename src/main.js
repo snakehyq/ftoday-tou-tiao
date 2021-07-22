@@ -3,7 +3,20 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// 导入vant组件
+import Vant from 'vant'
+import 'vant/lib/index.css'
+
+// 加载全局样式
+import 'style/index.scss'
+
+// 导入用于设置 rem 基准值的插件amfe-flexible
+import 'amfe-flexible'
+
 Vue.config.productionTip = false
+
+// 安装插件
+Vue.use(Vant)
 
 new Vue({
   router,

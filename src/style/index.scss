@@ -1,0 +1,16 @@
+// 全局样式
+@import "./icon.scss";
+
+body {
+    background-color: #f5f7f9;
+}
+
+.van-nav-bar {
+    background-color: $nav-bgcolor;
+    .van-nav-bar__title {
+      color: $text-color;
+    }
+    .van-icon {
+      color: $text-color;
+    }
+  }
