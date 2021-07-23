@@ -147,8 +147,8 @@ export default {
       try {
         const data = await login(this.user)
         this.$toast.success('登录成功')
-        console.log(data)
         this.$store.commit('saveUser', data.data)
+        this.$router.replace('/my')
       } catch (error) {
         this.$toast.fail('登录失败，手机号或者验证码错误')
       }

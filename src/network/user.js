@@ -15,3 +15,10 @@ export function getCode (mobile) {
     url: `/app/v1_0/sms/codes/${mobile}`
   })
 }
+
+// 获取当前登录用户的信息
+export function getUserInfo () {
+  return request({
+    url: '/app/v1_0/user'
+  })
+}

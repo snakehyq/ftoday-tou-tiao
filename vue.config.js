@@ -14,7 +14,8 @@ module.exports = {
         views: '@/views',
         network: '@/network',
         assets: '@/assets',
-        style: '@/style'
+        style: '@/style',
+        store: '@/store'
       }
     }
   }

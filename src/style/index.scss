@@ -1,6 +1,9 @@
-// 全局样式
+// 加载图标样式
 @import "./icon.scss";
+// 加载处理各种浏览器的默认样式
+@import "./normalize.css";
 
+// 全局样式
 body {
     background-color: #f5f7f9;
 }
