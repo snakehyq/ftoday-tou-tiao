@@ -13,6 +13,9 @@ import 'style/index.scss'
 // 导入用于设置 rem 基准值的插件amfe-flexible
 import 'amfe-flexible'
 
+// 加载dayjs的时间
+import 'common/day.js'
+
 Vue.config.productionTip = false
 
 // 安装插件

@@ -59,6 +59,7 @@
 
 <script>
 import { login, getCode } from 'network/user'
+
 export default {
   name: 'login',
   components: {},

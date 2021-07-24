@@ -22,3 +22,26 @@ export function getUserInfo () {
     url: '/app/v1_0/user'
   })
 }
+
+// 获取用户的频道标题数据
+export function getUserChannelsData () {
+  return request({
+    url: '/app/v1_0/user/channels'
+  })
+}
+
+// 添加用户的频道列表
+export function addUserChannnel (data) {
+  return request({
+    method: 'PATCH',
+    url: '/app/v1_0/user/channels',
+    data
+  })
+}
+// 删除用户的频道
+export function deleteUserChannnel (target) {
+  return request({
+    method: 'DELETE',
+    url: `/app/v1_0/user/channels/${target}`
+  })
+}

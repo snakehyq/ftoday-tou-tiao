@@ -79,6 +79,8 @@
 
 <script>
 import { getUserInfo } from 'network/user'
+
+import { removeStorage } from 'store/storage'
 export default {
   name: 'my',
   components: {},
@@ -110,6 +112,7 @@ export default {
     // 退出登录
     outLogin () {
       this.isShowLogin = false
+      removeStorage('user')
     }
   }
 }
