@@ -75,7 +75,7 @@ export default {
         this.finished = true
       }
     },
-    // 上拉刷新
+    // 下拉刷新
     async onRefresh () {
       // 下拉刷新，组件自己就会展示 loading 状态
       // 1. 请求获取数据

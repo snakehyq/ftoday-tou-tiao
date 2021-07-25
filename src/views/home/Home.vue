@@ -9,6 +9,7 @@
           size="small"
           icon="search"
           class="search-btn"
+          @click="searchClick"
           >搜素
         </van-button>
       </template>
@@ -109,6 +110,10 @@ export default {
     async getArtListAllData () {
       const { data } = await getArtListAllData()
       this.artListAllData = data.channels
+    },
+    // 跳转到搜素界面
+    searchClick () {
+      this.$router.push('/search')
     }
   }
 }
