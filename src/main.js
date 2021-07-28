@@ -16,6 +16,9 @@ import 'amfe-flexible'
 // 加载dayjs的时间
 import 'common/day.js'
 
+// 使用事件总线
+Vue.prototype.$bus = new Vue()
+
 Vue.config.productionTip = false
 
 // 安装插件

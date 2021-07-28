@@ -45,3 +45,22 @@ export function deleteUserChannnel (target) {
     url: `/app/v1_0/user/channels/${target}`
   })
 }
+
+// 关注用户
+export function followedUser (target) {
+  return request({
+    method: 'POST',
+    url: '/app/v1_0/user/followings/',
+    data: {
+      target
+    }
+  })
+}
+
+// 取消关注用户
+export function cancelFollowedUser (target) {
+  return request({
+    method: 'DELETE',
+    url: `/app/v1_0/user/followings/${target}`
+  })
+}
