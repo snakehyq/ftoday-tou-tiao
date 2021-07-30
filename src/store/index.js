@@ -7,7 +7,8 @@ import getters from './getters'
 import { getStorage } from './storage'
 Vue.use(Vuex)
 const state = {
-  user: getStorage('user')
+  user: getStorage('user'),
+  cachePages: ['layout']
 }
 export default new Vuex.Store({
   state,

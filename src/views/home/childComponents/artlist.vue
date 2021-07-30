@@ -1,5 +1,5 @@
 <template>
-  <div class="artlist">
+  <div class="artlist" ref="artList">
     <van-pull-refresh
       v-model="refreshing"
       :success-text="refreshSuccessText"
@@ -24,6 +24,7 @@
 <script>
 import { getArtListData } from 'network/news'
 import ArtListItem from 'components/content/artlistItem'
+import { debounce } from 'lodash'
 export default {
   name: 'artList',
   props: {
@@ -49,8 +50,22 @@ export default {
       // 下拉刷新
       refreshing: false,
       // 下拉刷新的成功文本
-      refreshSuccessText: ''
+      refreshSuccessText: '',
+      // 距离顶部的高度
+      scrollTop: 0,
+      // 文章列表ref
+      artListRef: null
     }
+  },
+  mounted () {
+    this.artListRef = this.$refs.artList
+    this.artListRef.onscroll = debounce(() => {
+      this.scrollTop = this.artListRef.scrollTop
+      console.log(this.scrollTop)
+    }, 100)
+  },
+  activated () {
+    this.artListRef.scrollTop = this.scrollTop
   },
   methods: {
     // 下拉加載更多

@@ -87,7 +87,6 @@ export default {
     this.getUserChannelsData()
     this.getArtListAllData()
   },
-  mounted () {},
   methods: {
     // 获取用户频道数据
     async getUserChannelsData () {

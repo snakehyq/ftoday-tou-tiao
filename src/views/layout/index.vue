@@ -1,7 +1,9 @@
 <template>
   <div class="layout-container">
     <!-- 子路由出口 -->
-    <router-view />
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
     <!-- 底部导航 -->
     <Tabbar></Tabbar>
   </div>
@@ -18,7 +20,9 @@ export default {
   props: {},
   computed: {},
   watch: {},
-  created () {},
+  created () {
+    this.$store.commit('addCachePage', 'layout')
+  },
   mounted () {},
   methods: {}
 }

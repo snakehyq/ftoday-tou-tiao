@@ -154,6 +154,7 @@ export default {
         this.$toast.success('登录成功')
         this.$store.commit('saveUser', data.data)
         this.$router.replace('/my')
+        this.$store.commit('removeCachePage', 'layout')
       } catch (error) {
         this.$toast.fail('登录失败，手机号或者验证码错误')
       }
