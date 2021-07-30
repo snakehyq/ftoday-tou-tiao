@@ -1,21 +1,28 @@
 <template>
-  <div class="qa">qa</div>
+  <div class="qa-container">
+   <!-- 导航 -->
+    <van-nav-bar title="问答">
+    </van-nav-bar>
+    <h1>开发中...</h1>
+  </div>
 </template>
 
 <script>
+
 export default {
-  name: 'qa',
-  components: {},
+  name: 'Qa',
+  components: {
+  },
   props: {},
   data () {
     return {}
   },
   computed: {},
-  watch: {},
+  watch: {
+  },
   created () {},
-  mounted () {},
   methods: {}
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped></style>

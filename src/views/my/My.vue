@@ -1,6 +1,6 @@
 <template>
   <div class="my">
-    <div class="my-info" v-if="isShowLogin">
+    <div class="my-info" v-if="getUser">
       <!-- 登录成功 -->
       <van-cell-group :border="false" class="base-info">
         <van-cell center :border="false">
@@ -17,6 +17,7 @@
             round
             size="small"
             class="btn"
+            to="/user/profile"
           >编辑资料</van-button>
         </van-cell>
         <!-- 表格区域 -->
@@ -27,13 +28,13 @@
               <div class="count-name">头条</div>
             </div>
           </van-grid-item>
-          <van-grid-item class="data-info-item">
+          <van-grid-item class="data-info-item" @click="$router.push('/user/follfans')">
             <div class="text-wrap">
               <div class="count">{{ userInfo.follow_count }}</div>
-              <div class="count-name">关注</div>
+              <div class="count-name" >关注</div>
             </div>
           </van-grid-item>
-          <van-grid-item class="data-info-item">
+          <van-grid-item class="data-info-item" @click="$router.push('/user/follfans')">
             <div class="text-wrap">
               <div class="count">{{ userInfo.fans_count }}</div>
               <div class="count-name">粉丝</div>
@@ -58,17 +59,35 @@
     <!-- 收藏历史 -->
     <div class="sl">
       <van-grid :border="false" :column-num="2">
-        <van-grid-item icon-prefix="toutiao" icon="shoucang" text="收藏"/>
-        <van-grid-item icon-prefix="toutiao" icon="lishi" text="历史"/>
+        <van-grid-item
+          icon-prefix="toutiao"
+          icon="shoucang"
+          text="收藏"
+          to="/user/scls"
+        />
+        <van-grid-item
+          icon-prefix="toutiao"
+          icon="lishi"
+          text="历史"
+          to="/user/scls"
+        />
     </van-grid>
     </div>
     <!-- 消息通知，小智同学 -->
     <div class="cell-group">
-      <van-cell title="消息通知" is-link />
-      <van-cell title="小智同学" is-link />
+      <van-cell
+        title="消息通知"
+        is-link
+        v-if="getUser"/>
+      <van-cell
+        title="小智同学"
+        is-link
+        to="/user/chat"
+      />
     </div>
     <!-- 退出登录按钮 -->
     <van-button
+      v-if="getUser"
       type="default"
       class="quit-btn"
       block
@@ -80,23 +99,23 @@
 <script>
 import { getUserInfo } from 'network/user'
 
-import { removeStorage } from 'store/storage'
+import { mapGetters } from 'vuex'
 export default {
   name: 'my',
   components: {},
   props: {},
   data () {
     return {
-      // 登录未登录的隐藏和显示
-      isShowLogin: true,
       // 当前登录用户的信息
       userInfo: {}
     }
   },
-  computed: {},
   watch: {},
   created () {
     this.getUserInfo()
+  },
+  computed: {
+    ...mapGetters(['getUser'])
   },
   mounted () {},
   methods: {
@@ -111,8 +130,17 @@ export default {
     },
     // 退出登录
     outLogin () {
-      this.isShowLogin = false
-      removeStorage('user')
+      // 消息确认
+      this.$dialog.confirm({
+        title: '退出登录',
+        message: '是否退出登录'
+      })
+        .then(() => {
+          this.$store.commit('saveUser', null)
+        })
+        .catch(() => {
+          // on cancel
+        })
     }
   }
 }
@@ -191,8 +219,8 @@ export default {
       color: #fff;
     }
   }
-  .sl {
-     /deep/ .van-grid-item {
+   /deep/ .sl {
+     .van-grid-item {
       height: 70px;
        .toutiao {
         font-size: 22px;
@@ -208,6 +236,9 @@ export default {
         color: #333333;
       }
     }
+    .van-grid-item + .van-grid-item  {
+        border-left: 1px solid #eee;
+      }
   }
   .cell-group {
     margin: 14px 0px;

@@ -18,5 +18,5 @@ Vue.filter('relativeTime', value => {
 })
 // 全局过滤器：处理时间日期
 Vue.filter('dateTimie', (value, format = 'YYYY-MM-DD HH:mm:ss') => {
-  return dayjs().format(format)
+  return dayjs(value).format(format)
 })

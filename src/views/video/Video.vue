@@ -1,21 +1,28 @@
 <template>
-  <div class="video">video</div>
+  <div class="video-container">
+   <!-- 导航 -->
+    <van-nav-bar title="视频">
+    </van-nav-bar>
+    <h1>开发中...</h1>
+  </div>
 </template>
 
 <script>
+
 export default {
-  name: 'Video',
-  components: {},
+  name: 'Vidio',
+  components: {
+  },
   props: {},
   data () {
     return {}
   },
   computed: {},
-  watch: {},
+  watch: {
+  },
   created () {},
-  mounted () {},
   methods: {}
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped></style>

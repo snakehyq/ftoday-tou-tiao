@@ -38,6 +38,7 @@ export function addUserChannnel (data) {
     data
   })
 }
+
 // 删除用户的频道
 export function deleteUserChannnel (target) {
   return request({
@@ -62,5 +63,46 @@ export function cancelFollowedUser (target) {
   return request({
     method: 'DELETE',
     url: `/app/v1_0/user/followings/${target}`
+  })
+}
+
+// 获取用户的个人信息
+export function getUserMessage () {
+  return request({
+    url: '/app/v1_0/user/profile'
+  })
+}
+
+// 修改用户的个人信息
+export function updateUserMessage (data) {
+  return request({
+    method: 'PATCH',
+    url: '/app/v1_0/user/profile',
+    data
+  })
+}
+
+// 修改用户的头像信息
+export function updateUserImage (data) {
+  return request({
+    method: 'PATCH',
+    url: '/app/v1_0/user/photo',
+    data
+  })
+}
+
+// 获取用户的关注列表
+export function getUserFollows (params) {
+  return request({
+    url: '/app/v1_0/user/followings',
+    params
+  })
+}
+
+// 获取用户的粉丝列表
+export function getUserFans (params) {
+  return request({
+    url: '/app/v1_0/user/followers',
+    params
   })
 }

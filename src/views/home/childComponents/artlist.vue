@@ -23,7 +23,7 @@
 
 <script>
 import { getArtListData } from 'network/news'
-import ArtListItem from './artlistItem'
+import ArtListItem from 'components/content/artlistItem'
 export default {
   name: 'artList',
   props: {
