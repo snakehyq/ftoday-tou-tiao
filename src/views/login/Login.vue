@@ -151,9 +151,10 @@ export default {
       })
       try {
         const data = await login(this.user)
+        console.log(data)
         this.$toast.success('登录成功')
         this.$store.commit('saveUser', data.data)
-        this.$router.replace('/my')
+        this.$router.replace(this.$route.query.redirection || '/')
         this.$store.commit('removeCachePage', 'layout')
       } catch (error) {
         this.$toast.fail('登录失败，手机号或者验证码错误')

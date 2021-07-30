@@ -15,7 +15,8 @@ module.exports = {
         network: '@/network',
         assets: '@/assets',
         style: '@/style',
-        store: '@/store'
+        store: '@/store',
+        router: '@/router'
       }
     }
   }

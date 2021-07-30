@@ -82,7 +82,7 @@
       <van-cell
         title="小智同学"
         is-link
-        to="/user/chat"
+        @click="goClassmathClikck"
       />
     </div>
     <!-- 退出登录按钮 -->
@@ -126,7 +126,12 @@ export default {
     },
     // 去登录
     goLoginClick () {
-      this.$router.push('/login')
+      this.$router.push({
+        name: 'login',
+        query: {
+          redirection: '/my'
+        }
+      })
     },
     // 退出登录
     outLogin () {
@@ -141,6 +146,11 @@ export default {
         .catch(() => {
           // on cancel
         })
+    },
+    goClassmathClikck () {
+      this.$router.push('/user/chat')
+      // if (this.getUser) this.$router.replace('/user/chat')
+      // else this.$router.replace('/user/chat')
     }
   }
 }
